@@ -1,0 +1,201 @@
+.container {
+  font-family: Poppins;
+  width: 100%;
+  min-height: 89.6vh;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video_container {
+  font-family: Poppins;
+  position: relative;
+  width: 900px;
+  margin: auto;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(225, 225, 225, 0.24);
+  z-index: 10;
+}
+.video_container .main-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+.video_container .controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(0 0 0 / 70%);
+  box-shadow: 0 0 40px 10px rgb(0 0 0 / 25%);
+  opacity: 1;
+}
+.video_container .controls.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+.video_container .controls .progress-area {
+  width: 95%;
+  height: 5px;
+  margin: auto;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+.controls .progress-area .progress-bar {
+  position: relative;
+  pointer-events: none;
+  width: 0%;
+  background-color: rgb(225, 174, 0);
+  height: inherit;
+  border-radius: inherit;
+}
+.controls .progress-area .progress-bar::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(225, 174, 0);
+}
+
+.controls .controls-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 97%;
+  height: 46px;
+  margin: 0 auto;
+}
+.controls .controls-list .controls-left,
+.controls .controls-list .controls-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.controls-left .timer {
+  display: inline-block;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #fff;
+  margin-left: 5px;
+  text-align: center;
+}
+.controls .icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  margin-left: 8px;
+  margin-right: 5px;
+}
+.controls .icon .material-icon {
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+.controls .icon .material-icon.fast-rewind:active {
+  transition: 0.08s ease-in-out;
+  transform: rotate(-45deg);
+}
+.controls .icon .material-icon.fast-forward:active {
+  transition: 0.08s ease-in-out;
+  transform: rotate(45deg);
+}
+
+.controls .icon .volume_range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 3px;
+  background-color: #fff;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+.controls .icon .volume_range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: #fff;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.controls .icon:hover .volume_range {
+  width: 60px;
+  display: inline-block;
+}
+
+.controls .icon:hover .volume_range::-webkit-slider-thumb {
+  opacity: 1;
+  pointer-events: auto;
+}
+.controls-right .icon .setting.active {
+  transform: rotate(45deg);
+}
+.disable{
+    opacity: 0;
+}
+.video_container #setting {
+opacity: 1;
+  position: absolute;
+  right: 25px;
+  bottom: 62px;
+  background-color: rgb(28 28 28 / 90%);
+  width: 200px;
+  height: 250px;
+  color: #fff;
+  overflow: auto;
+  z-index: 20;
+}
+.video_container #setting .playback span {
+  font-size: 16px;
+  padding: 10px 15px;
+  font-weight: 300;
+  display: block;
+  border-bottom: 1px solid rgb(83 83 83);
+}
+
+.video_container #setting ul {
+  position: relative;
+}
+.video_container #setting ul li {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  padding: 12px 33px;
+  display: block;
+}
+
+.video_container #setting ul li:hover {
+  background-color: rgb(28, 28, 28, 0.8);
+}
+.video_container #setting ul li.active::before {
+  content: "\2713";
+  font-family: Poppins;
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 10px;
+  font-size: 10px;
+}
+
+

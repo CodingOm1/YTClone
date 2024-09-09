@@ -1,0 +1,33 @@
+.video-list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 40px;
+    gap: 20px;
+}
+
+.video-item{
+    width: auto;
+    height: auto;
+    background: #49494900;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px;
+    justify-content: center;
+    gap: 10px;
+    font-family: Poppins;
+    border: 1px solid #333;
+}
+.video-item:hover{
+    background-color: #121212;
+    cursor: pointer;
+}
+.video-item img{
+    width: 300px;
+    border-radius: 5px;
+}
+.video-item h3{
+    text-align: center;
+}
