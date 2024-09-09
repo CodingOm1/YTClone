@@ -10,7 +10,7 @@ const Videos = () => {
   const navigate = useNavigate(); // for navigation
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/videos')
+    axios.get('http://localhost:10000/api/videos')
       .then(response => {
         setVideos(response.data);
         setLoading(false);
@@ -44,7 +44,7 @@ const Videos = () => {
               className='video-item'
               onClick={() => handleVideoClick(video)}
             >
-              <img src={`http://localhost:5000${video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
+              <img src={`http://localhost:10000{video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
               <h3 className='video-title'>{video.title}</h3>
             </div>
           ))
