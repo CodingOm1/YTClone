@@ -9,7 +9,7 @@ const videoRoutes = require('./routes/videoRoutes');
 const app = express();
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/ytToday', {
+mongoose.connect('mongodb+srv://codewithom405:Code@0818@cluster0.0uwmq.mongodb.net/myDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
