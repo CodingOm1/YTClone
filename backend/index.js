@@ -6,8 +6,8 @@ const cors = require('cors'); // Import cors
 const Video = require('./models/video'); // Adjust the path as necessary
 const videoRoutes = require('./routes/videoRoutes');
 
-
-const url = 'http://localhost:5000'
+const PORT = process.env.PORT || 5000;
+const url = 'http://localhost:{PORT}'
 const app = express();
 // RuA6ZF88VzzLKOW0
 // MongoDB connection
@@ -93,7 +93,7 @@ app.use((req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
