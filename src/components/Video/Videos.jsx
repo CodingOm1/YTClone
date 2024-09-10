@@ -13,7 +13,7 @@ const Videos = () => {
   const searchQuery = searchParams.get('query') || '';
 
   useEffect(() => {
-    axios.get('https://ytclone-lixh.onrender.com//api/videos')
+    axios.get('https://ytclone-lixh.onrender.com/api/videos')
       .then(response => {
         setVideos(response.data);
       } catch (error) {
@@ -48,7 +48,7 @@ const Videos = () => {
               className='video-item'
               onClick={() => handleVideoClick(video)}
             >
-              <img src={`https://ytclone-lixh.onrender.com/{video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
+              <img src={`https://ytclone-lixh.onrender.com{video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
               <h3 className='video-title'>{video.title}</h3>
             </div>
           ))
