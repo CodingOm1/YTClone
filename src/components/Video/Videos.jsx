@@ -13,8 +13,10 @@ const Videos = () => {
   const searchQuery = searchParams.get('query') || '';
 
   useEffect(() => {
-    axios.get('https://ytclone-lixh.onrender.com/api/videos')
-      .then(response => {
+    const fetchVideos = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`https://ytclone-lixh.onrender.com/api/videos?query=${searchQuery}`);
         setVideos(response.data);
       } catch (error) {
         setError('Error fetching videos');
