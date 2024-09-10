@@ -13,16 +13,18 @@ const Videos = () => {
   const searchQuery = searchParams.get('query') || '';
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const fetchVideos = () => {
       setLoading(true);
-      try {
-        const response = await axios.get(`https://ytclone-lixh.onrender.com/api/videos?query=${searchQuery}`);
-        setVideos(response.data);
-      } catch (error) {
-        setError('Error fetching videos');
-      } finally {
-        setLoading(false);
-      }
+      axios.get(`https://ytclone-lixh.onrender.com/api/videos?query=${searchQuery}`)
+        .then(response => {
+          setVideos(response.data);
+        })
+        .catch(error => {
+          setError('Error fetching videos');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     };
 
     fetchVideos();
