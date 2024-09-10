@@ -13,7 +13,7 @@ const Videos = () => {
   const searchQuery = searchParams.get('query') || '';
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/videos')
+    axios.get('http://localhost:10000/api/videos')
       .then(response => {
         setVideos(response.data);
       } catch (error) {
