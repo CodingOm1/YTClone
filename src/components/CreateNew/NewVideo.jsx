@@ -19,7 +19,7 @@ function NewVideo() {
 
     try {
       // Send POST request to upload files
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('https://ytclone-lixh.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
