@@ -13,10 +13,8 @@ const Videos = () => {
   const searchQuery = searchParams.get('query') || '';
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(`http://localhost:5000/api/videos?query=${searchQuery}`);
+    axios.get('http://localhost:5000/api/videos')
+      .then(response => {
         setVideos(response.data);
       } catch (error) {
         setError('Error fetching videos');
@@ -50,7 +48,7 @@ const Videos = () => {
               className='video-item'
               onClick={() => handleVideoClick(video)}
             >
-              <img src={`http://localhost:5000${video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
+              <img src={`http://localhost:10000{video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
               <h3 className='video-title'>{video.title}</h3>
             </div>
           ))
