@@ -6,10 +6,12 @@ const cors = require('cors'); // Import cors
 const Video = require('./models/video'); // Adjust the path as necessary
 const videoRoutes = require('./routes/videoRoutes');
 
-const app = express();
 
+const url = 'http://localhost:5000'
+const app = express();
+// RuA6ZF88VzzLKOW0
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/ytToday', {
+mongoose.connect('mongodb+srv://codewithom405:RuA6ZF88VzzLKOW0@cluster0.v4ics.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -40,7 +42,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Serve the upload form at the root route
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   res.render('index'); // Render the EJS form
 });
 
@@ -68,8 +70,8 @@ app.post('/upload', upload.fields([{ name: 'videoMedia' }, { name: 'thumbnail' }
 
     res.send(`
       <p>Title: ${title}</p>
-      <p>Video uploaded successfully: <a href="${videoPath}">View Video</a></p>
-      <p>Thumbnail: <img src="${thumbnailPath}" width="150" /></p>
+      <p>Video uploaded successfully: <a href="${url}${videoPath}">View Video</a></p>
+      <p>Thumbnail: <img src="${url}${thumbnailPath}" width="150" /></p>
     `);
   } catch (error) {
     console.error('Error saving video to MongoDB:', error);

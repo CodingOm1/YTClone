@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Videos.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -7,22 +7,28 @@ const Videos = () => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // for navigation
+  const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get('query') || '';
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/videos')
-      .then(response => {
+    const fetchVideos = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`http://localhost:5000/api/videos?query=${searchQuery}`);
         setVideos(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
+      } catch (error) {
         setError('Error fetching videos');
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    fetchVideos();
+  }, [searchQuery]);
 
   const handleVideoClick = (video) => {
-    // Pass the videoMedia as part of the state
     navigate(`/playing/${video.title}`, { state: { videoMedia: video.videoMedia } });
   };
 

@@ -27,12 +27,16 @@ exports.createVideo = async (req, res) => {
 // Get all videos
 exports.getVideos = async (req, res) => {
   try {
-    const videos = await Video.find();
+    const query = req.query.query || '';
+    const videos = await Video.find({
+      title: { $regex: query, $options: 'i' } // Case-insensitive search
+    });
     res.status(200).json(videos);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
+
 
 // Get a single video by ID
 exports.getVideo = async (req, res) => {
