@@ -50,6 +50,7 @@ const Videos = () => {
               className='video-item'
               onClick={() => handleVideoClick(video)}
             >
+              {/* Ensure the image URL is properly formatted */}
               <img src={`https://ytclone-lixh.onrender.com${video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
               <h3 className='video-title'>{video.title}</h3>
             </div>
