@@ -147,7 +147,7 @@ function Player() {
   return (
     <div className="container">
       <div className="video_container">
-        <video ref={videoRef} src={`http://localhost:10000${videoMedia}`} className="main-video"></video>
+        <video ref={videoRef} src={`https://ytclone-lixh.onrender.com${videoMedia}`} className="main-video"></video>
         <div className="progressAreaTime"></div>
         <div className={`controls ${hideControls ? "hide" : ""}`}>
           <div className="progress-area" onClick={seek}>
