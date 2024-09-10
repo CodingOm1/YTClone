@@ -50,7 +50,6 @@ const Videos = () => {
               className='video-item'
               onClick={() => handleVideoClick(video)}
             >
-              {/* Fixed the URL concatenation in the src attribute */}
               <img src={`https://ytclone-lixh.onrender.com${video.videoThumbnail}`} alt={video.title} className='video-thumbnail' />
               <h3 className='video-title'>{video.title}</h3>
             </div>
@@ -64,4 +63,3 @@ const Videos = () => {
 };
 
 export default Videos;
-
