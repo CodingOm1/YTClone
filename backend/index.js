@@ -20,7 +20,7 @@ mongoose.connect('mongodb+srv://codewithom405:RuA6ZF88VzzLKOW0@cluster0.v4ics.mo
 
 // Middleware
 app.use(cors({
-  origin: 'https://omtube.vercel.app'
+  origin: 'https://omtube.vercel.app/'
 }));
 
 app.use(express.json());
